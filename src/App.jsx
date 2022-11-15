@@ -18,13 +18,7 @@ export default function App() {
     const toggle = (id) => {
         const boxClicked = squares.find(square => square.id === id);
         setSquares(prevState => prevState.map((square) => {
-            if (square.id === boxClicked.id) {
-                return {
-                    ...square,
-                    on: !square.on
-                }
-            }
-            return square
+            return square.id === id ? {...square, on: !square.on} : square
         }))
     }
 
