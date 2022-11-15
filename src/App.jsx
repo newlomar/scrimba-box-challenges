@@ -16,7 +16,16 @@ export default function App() {
     const [squares, setSquares] = React.useState(boxes)
     
     const toggle = (id) => {
-        console.log(id)
+        const boxClicked = squares.find(square => square.id === id);
+        setSquares(prevState => prevState.map((square) => {
+            if (square.id === boxClicked.id) {
+                return {
+                    ...square,
+                    on: !square.on
+                }
+            }
+            return square
+        }))
     }
 
     const squareElements = squares.map(square => (
@@ -25,7 +34,7 @@ export default function App() {
             id={square.id}
             on={square.on}
             toggle={toggle}
-            />
+        />
     ))
     
     return (
