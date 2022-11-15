@@ -5,12 +5,17 @@ import Box from "./Box"
 export default function App() {    
     const [squares, setSquares] = React.useState(boxes)
     
-    const toggle = () => {
-        console.log('clicked!')
+    const toggle = (id) => {
+        console.log(id)
     }
 
     const squareElements = squares.map(square => (
-        <Box toggle={toggle} key={square.id} on={square.on} />
+        <Box 
+            key={square.id}
+            id={square.id}
+            on={square.on}
+            toggle={toggle}
+            />
     ))
     
     return (
