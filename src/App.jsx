@@ -10,11 +10,15 @@ export default function App() {
      * Pass that function down to each of the Box components
      * and set it up so when they get clicked it runs the function
      */
-
+    
     const [squares, setSquares] = React.useState(boxes)
     
+    const toggle = () => {
+        console.log('clicked!')
+    }
+
     const squareElements = squares.map(square => (
-        <Box key={square.id} on={square.on} />
+        <Box toggle={toggle} key={square.id} on={square.on} />
     ))
     
     return (
