@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import React from "react"
+import boxes from "./boxes"
+import Box from "./Box"
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div>
-      <h1>Test 123!</h1>
-    </div>
-  )
+export default function App() {
+    const [squares, setSquares] = React.useState(boxes)
+    
+    const squareElements = squares.map(square => (
+        <Box key={square.id} on={square.on} />
+    ))
+    
+    return (
+        <main>
+            {squareElements}
+        </main>
+    )
 }
-
-export default App
